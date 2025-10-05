@@ -1,0 +1,23 @@
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-q"
+testpaths = ["tests"]
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "render-to-reality"
+version = "0.1.0"
+description = "Drag-and-drop AI render to mesh pipeline with depth, analysis, and OpenAI hooks."
+authors = [ { name = "1JGM∞.BE" } ]
+requires-python = ">=3.9"
+dependencies = [
+    "PyQt6",
+    "opencv-python",
+    "numpy",
+    "Pillow",
+    "trimesh",
+    "openai",
+    "torch"
+]
