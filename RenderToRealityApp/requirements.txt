@@ -1,0 +1,9 @@
+PyQt6
+opencv-python
+numpy
+Pillow
+trimesh
+openai
+# Optional but recommended for real depth:
+# Install an appropriate wheel from https://pytorch.org/ (CPU or CUDA)
+torch
