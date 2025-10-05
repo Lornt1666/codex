@@ -1,0 +1,20 @@
+# RenderToRealityApp requirements
+
+# Core image processing
+opencv-python>=4.8.0
+numpy>=1.24.0
+Pillow>=10.0.0
+
+# 3D mesh processing
+trimesh>=4.0.0
+
+# GUI (optional for headless mode)
+PyQt6>=6.5.0
+
+# OpenAI integration (optional)
+openai>=1.0.0
+
+# Deep learning for better depth maps (optional)
+# Uncomment and install from https://pytorch.org/ for your platform
+# torch>=2.0.0
+# torchvision>=0.15.0
