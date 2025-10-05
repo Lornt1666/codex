@@ -36,6 +36,7 @@ env/
 output/
 logs/
 config.json
+test_output/
 
 # OS
 .DS_Store
