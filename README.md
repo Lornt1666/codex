@@ -85,6 +85,8 @@ Codex CLI supports a rich set of configuration options, with preferences stored 
   - [GitHub Action](https://github.com/openai/codex-action)
   - [TypeScript SDK](./sdk/typescript/README.md)
   - [Non-interactive mode (`codex exec`)](./docs/exec.md)
+- [Auto3D pipeline CLI, wizard, prompt-to-STL generator, printability gate, catalog variants, AI guidance, supercomputing blueprint readiness, marketing site builder, Playwright automation, and module-level regression tests](./docs/auto3d-pipeline.md)
+- [Auto3D readiness checklist](./docs/auto3d-readiness-checklist.md)
 - [**Advanced**](./docs/advanced.md)
   - [Tracing / verbose logging](./docs/advanced.md#tracing--verbose-logging)
   - [Model Context Protocol (MCP)](./docs/advanced.md#model-context-protocol-mcp)
