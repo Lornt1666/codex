@@ -101,6 +101,16 @@ Codex CLI supports a rich set of configuration options, with preferences stored 
 
 ---
 
+### Utilities
+
+- `scripts/merge_chatgpt_logs.py`: Merge multiple exported ChatGPT archives
+  (unzipped directories, raw `conversations.json` files, or untouched `.zip`
+  exports) into a single, chronologically ordered timeline — useful for
+  consolidating conversations across the Justice Maciocha accounts referenced
+  in the repository history.
+
+---
+
 ## License
 
 This repository is licensed under the [Apache-2.0 License](LICENSE).
