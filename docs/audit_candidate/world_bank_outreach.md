@@ -70,3 +70,26 @@ function coordinate_world_bank_outreach(case_id,
 - Change management requiring dual approval (audit lead + compliance officer) for modifications to distribution policies or contact roster sources.
 
 This function enables trusted, auditable dissemination of critical findings to world banking authorities without bypassing statutory guardrails.
+
+## 8. Operational Tooling
+
+Use `scripts/world_bank_outreach.py` to assemble the outbound package that will be transmitted through the enclave relay. The tool copies the latest case documentation, generates per-recipient dispatch memos, and produces a tamper-evident manifest of artifacts.
+
+```bash
+python scripts/world_bank_outreach.py \
+  --contacts docs/audit_candidate/world_bank_contacts.example.json \
+  --output out/world-bank-package \
+  --zip
+```
+
+Inputs:
+- `--contacts`: JSON array describing each authorized representative (see `world_bank_contacts.example.json`).
+- `--documents`: Optional override list of files to include (defaults to the seven sanctioned artifacts).
+- `--subject`: Subject line inserted into every generated message draft.
+- `--zip`: Produce a `.zip` archive mirroring the generated folder for secure upload.
+
+Outputs:
+- `documents/`: Verified copies of all evidence files with preserved timestamps.
+- `messages/`: Tailored communication drafts for each contact.
+- `outreach_manifest.json`: Machine-readable ledger of contacts, hashes, and file paths for downstream tracking.
+- Optional `<output>.zip` archive ready for enclave ingestion.
