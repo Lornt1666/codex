@@ -2,7 +2,7 @@
   "subject": "Justice Gray Maciocha / Satoshi_amamoto / Lornt",
   "wallets": ["0xABC..."],
   "period": {"start": "2018-01-01", "end": "2024-12-31"},
-  "jurisdiction": "Canada/Alberta",
+  "jurisdiction": "Canada/Alberta with World Bank/BIS multilateral supervision",
   "priority": "high",
   "resources": {"subpoena_power": true, "exchange_access": true},
   "evidence_items": [
@@ -28,6 +28,14 @@
       "description": "Institution 219 transit 07579 account 00471372978 statements (2018-2024)",
       "hash": "SHA256 TBD",
       "source": "Bank production",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "swift_gpi_traces",
+      "type": "xml",
+      "description": "SWIFT gpi MT103/199 trace exports covering correspondent banking legs",
+      "hash": "SHA256 TBD",
+      "source": "BIS Innovation Hub secure exchange",
       "collected_at": "TBD"
     },
     {
@@ -76,6 +84,14 @@
       "description": "Exchange-provided IP/device login metadata aligned to wallet activity",
       "hash": "SHA256 TBD",
       "source": "Exchange subpoena response",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "world_bank_risk_brief",
+      "type": "pdf",
+      "description": "World Bank Financial Sector Integrity risk memo summarizing systemic considerations",
+      "hash": "SHA256 TBD",
+      "source": "World Bank task force portal",
       "collected_at": "TBD"
     },
     {
@@ -129,6 +145,14 @@
       "collected_at": "TBD"
     },
     {
+      "id": "bis_systemic_alerts",
+      "type": "json",
+      "description": "BIS central bank digital asset monitor alerts linked to subject transactions",
+      "hash": "SHA256 TBD",
+      "generated_with": "BIS monitor API",
+      "collected_at": "TBD"
+    },
+    {
       "id": "zero_trust_audit_log",
       "type": "jsonl",
       "description": "Consolidated zero-trust monitoring exports documenting recovery workspace activity",
@@ -142,5 +166,5 @@
     {"chain": "Bitcoin", "block_height": "840000", "timestamp": "2024-12-31T23:59:59Z"},
     {"chain": "Arbitrum", "block_height": "196000000", "timestamp": "2024-12-31T23:59:59Z"}
   ],
-  "notes": "Populate TBD fields upon evidence acquisition; maintain chain-of-custody log, reference audit diary entry numbers, log quarterly access-control reviews, capture zero-trust monitoring hashes, and record confirmation plus team attestations that no unauthorized key reconstruction attempts were undertaken."
+  "notes": "Populate TBD fields upon evidence acquisition; maintain chain-of-custody log, reference audit diary entry numbers, log quarterly access-control reviews, capture zero-trust monitoring hashes, record confirmation plus team attestations that no unauthorized key reconstruction attempts were undertaken, and document all transfers through BIS/World Bank secure portals with corresponding authorization IDs."
 }

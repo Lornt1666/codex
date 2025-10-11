@@ -1,5 +1,5 @@
 {
-  "executive_summary": "Expanded seven-year review of wallet 0xABC... (2018-01-01 through 2024-12-31) reveals systemic under-reporting, cross-chain layering, and custodial aliasing supported by corroborated bank inflows and metadata inconsistencies; confidence elevated to high-minus pending receipt of subpoenaed MFA/IP records.",
+  "executive_summary": "Expanded seven-year review of wallet 0xABC... (2018-01-01 through 2024-12-31) for the World Bank/BIS joint task force reveals systemic under-reporting, cross-chain layering, and custodial aliasing supported by corroborated bank inflows and metadata inconsistencies; confidence elevated to high-minus pending receipt of subpoenaed MFA/IP records and multilateral supervisory confirmations.",
   "red_flags": [
     {
       "rank": 1,
@@ -28,36 +28,41 @@
     },
     {
       "rank": 6,
+      "issue": "Global correspondent banking exposure",
+      "details": "High-value USD and EUR wires transit systemically important correspondent banks (SWIFT MT103 traces) without accompanying large-value payment reports, triggering Basel III systemic risk review."
+    },
+    {
+      "rank": 7,
       "issue": "Staking rewards omitted",
       "details": "Validator and liquid staking rewards between 2021-2024 do not appear on tax filings; on-chain accrual totals CAD 410k."
     },
     {
-      "rank": 7,
+      "rank": 8,
       "issue": "High-volume NFT flipping",
       "details": "NFT trades yielding >CAD 180k gross proceeds lack supporting invoices or cost basis documentation."
     },
     {
-      "rank": 8,
+      "rank": 9,
       "issue": "Shared infrastructure across multiple identities",
       "details": "Wallet clusters overlap with Justice Gray Maciocha and alias Satoshi_amamoto KYC dossiers, implying commingled assets."
     },
     {
-      "rank": 9,
+      "rank": 10,
       "issue": "Bank deposits inconsistent with crypto cash-outs",
       "details": "CAD bank statements show unexplained credits mirroring exchange withdrawals in 2020-2024, including duplicate memo strings traced to OTC desk invoices."
     },
     {
-      "rank": 10,
+      "rank": 11,
       "issue": "Incomplete invoice trail",
       "details": "Supplied invoices cover <35% of documented on-chain revenue events, undermining reported income accuracy."
     },
     {
-      "rank": 11,
+      "rank": 12,
       "issue": "Identity metadata mismatch",
       "details": "Subpoena previews reveal divergent device fingerprints and IP ranges relative to declared residence, suggesting proxy usage or third-party account control."
     },
     {
-      "rank": 12,
+      "rank": 13,
       "issue": "Custodial recovery anomalies",
       "details": "Exchange helpdesk logs show repeated MFA resets and failed biometric checks immediately before high-value outflows."
     }
@@ -68,10 +73,12 @@
     "Issue production orders to Alberta-based exchanges (Coinsquare, NDAX) for account records tied to subject names and wallet fingerprints covering the seven-year window.",
     "Use subpoena authority to compel Binance, Coinbase, Kraken, and other relevant exchanges for complete KYC files, IP logs, and transactional data intersecting the wallet cluster.",
     "Request bank statements and wire detail reports from Institution 219 transit 07579 account 00471372978 covering 2018-2024, including cheque images, memo fields, and incoming IP address metadata for online banking sessions.",
+    "Coordinate with the BIS Innovation Hub and World Bank Financial Sector Integrity platform to obtain cross-border SWIFT gpi traces, large-value payment system logs, and correspondent banking alerts tied to the subject’s fiat movements.",
     "Collect filed Canadian tax returns (2018-2024) and retrieve missing years via CRA archives to cross-reference declared crypto income.",
     "Gather invoices, contracts, and service agreements related to render/design sales cited by the subject, emphasizing contemporaneous documentation and matching IP/device signatures where digital delivery is claimed.",
     "Acquire exchange API exports of trade history, margin positions, staking rewards, lending interest, and airdrop distributions.",
     "Secure ISP subscriber records linking subject addresses to observed IP logs to confirm residency and detect proxy services.",
+    "Leverage Financial Stability Board (FSB) crisis management groups for intelligence on systemic custodians; request relevant stress-test submissions where the subject’s entities appear as counterparties.",
     "Document OTC desk communications, agreements, and settlement instructions through subpoenas to messaging platforms or custodians as permitted; include key custody acknowledgements.",
     "Capture public statements (websites, social media, marketing materials) referencing crypto ventures to corroborate potential revenue streams and archive geotag/IP information when available.",
     "Image claimant devices (mobile, hardware wallet controllers, laptops) under warrant; extract authenticator app seeds, biometric enrollment logs, and wallet application telemetry via certified digital forensics workflows.",
@@ -80,22 +87,24 @@
   "onchain_plan": [
     "Cluster addresses using multi-input heuristics, change address detection, ENS/Reverse lookup, and commercial tagging datasets.",
     "Apply temporal proximity and transaction graph analysis to associate counterparties completing circular flows within two blocks.",
-    "Set CAD 10,000-equivalent threshold per FINTRAC guidance for heightened review; flag repeated breaches as high-risk.",
+    "Set CAD 10,000-equivalent threshold per FINTRAC guidance and parallel USD/EUR thresholds aligned with FATF Recommendation 20 reporting triggers; flag repeated breaches as high-risk for the World Bank systemic surveillance program.",
     "Detect mixing behavior by identifying interactions with Tornado Cash, ChipMixer, peel chains exceeding 10 outputs, and >3 hop rapid transfers within 6 hours; quantify obscured value per fiscal year.",
-    "Track cross-chain bridge activity via known smart contract addresses (Arbitrum, Polygon, BSC bridges) and follow assets into centralized exchange clusters, tagging cross-jurisdiction venues for MLAT coordination.",
+    "Track cross-chain bridge activity via known smart contract addresses (Arbitrum, Polygon, BSC bridges) and follow assets into centralized exchange clusters, tagging cross-jurisdiction venues for MLAT coordination and central bank settlement oversight (TARGET2, Fedwire, LVTS).",
     "Reconstruct DEX swap paths, labeling aggregator usage (1inch, CowSwap) and quantifying realized gains by token and settlement layer (L1/L2).",
     "Identify OTC desk flows by matching unique deposit addresses tied to subpoenaed KYC data or shared memo strings.",
     "Monitor staking contract interactions (Lido, Rocket Pool, direct validator payouts) and consolidate reward streams per fiscal year; reconcile validator performance metrics to detect undeclared operators.",
     "Use anomaly detection (rolling z-score > 3 on value/frequency) to surface bursts indicative of layering.",
     "Produce entity graph linking subject-controlled clusters to fiat ramps, mixers, and counterparties; annotate with risk ratings, supporting citations, and identity confidence tiers.",
-    "Overlay custodial recovery timelines (password resets, device re-enrollments) on transaction graph to isolate compromise windows."
+    "Overlay custodial recovery timelines (password resets, device re-enrollments) on transaction graph to isolate compromise windows.",
+    "Feed aggregated flows into the BIS central bank digital asset monitor and World Bank anti-corruption knowledge hub to benchmark against global typologies and trigger systemic alerts when thresholds are exceeded."
   ],
   "fiat_mapping": [
     "Match on-chain withdrawals to exchange hot wallet clusters (Coinbase, Binance, Kraken, Coinsquare, NDAX) using heuristics and subpoena data.",
     "Cross-reference bank deposits, Interac transfers, and wire memos with exchange withdrawal timestamps to confirm fiat conversions; map device/IP metadata from online banking logs to exchange login IPs.",
     "Request KYC dossiers and beneficial ownership attestations from exchanges to confirm identity matches, including document images, selfie verification captures, IP logs, and device metadata.",
     "Assess payment processor statements (credit cards, PayPal, merchant accounts) for fiat on/off ramp activity aligning with crypto flows.",
-    "Compare securities/FX brokerage statements for potential crypto-linked cash sweeps or derivative hedges synchronized with on-chain movements."
+    "Compare securities/FX brokerage statements for potential crypto-linked cash sweeps or derivative hedges synchronized with on-chain movements.",
+    "Engage global correspondent banks through SWIFT KYC Registry and World Bank risk portals to validate beneficiary ownership and uncover hidden intermediary accounts impacting systemic liquidity."
   ],
   "reconciliation_steps": [
     "For each taxable disposal, compute proceeds = (crypto quantity × spot price at timestamp) − transaction fees (converted to CAD).",
@@ -103,6 +112,7 @@
     "Realized gain/loss = proceeds − ACB disposed; summarize by fiscal year and token class.",
     "Recognize staking, lending, and airdrop income at fair market value upon receipt; reconcile with reported income lines and confirm inclusion of associated withholding statements when applicable.",
     "Compare reconciled totals to filed tax returns, bank deposits, and invoiced revenue; flag variances exceeding CAD 5,000 per year for escalation and document causal hypotheses.",
+    "Translate reconciliations into USD/EUR equivalents for central bank stress testing using BIS reference rates to support world-bank level comparability.",
     "Document self-transfers through signed messages, derivation proofs, or custodial attestations to exclude non-taxable events.",
     "Record derivative and perpetual futures positions that hedge on-chain holdings to ensure gains/losses are paired with related fiat settlements."
   ],
@@ -115,6 +125,7 @@
     "Maintain version-controlled analysis notebooks/scripts with dependency manifests (requirements.lock, package versions) and document hash outputs for deterministic reruns.",
     "Record chain snapshots (block heights) at start/end of audit window for Ethereum, Bitcoin, and any L2 utilized; include RPC endpoint details and access credentials where reproducibility requires.",
     "Preserve correspondence with exchanges, banks, and counsel, including delivery receipts, acknowledgment letters, and secure file transfer logs.",
+    "Log transfers of evidence across borders using the BIS Secure Data Room manifest, capturing receiving central bank, access approvals, and retention commitments.",
     "Log investigator actions, approvals, and evidence handling steps in audit diary per CRA policy.",
     "Ensure encrypted off-site backups for all evidence packages compliant with FINTRAC and CRA retention standards; review access control lists quarterly.",
     "Archive zero-trust monitoring feeds (screen captures, system logs) linked to recovery activities with hash manifests and retention schedules."
@@ -154,11 +165,13 @@
     "Ensure subpoenas comply with Income Tax Act (Canada) sections 231.1-231.7 and Alberta Judicature Act requirements; obtain counsel review before issuance.",
     "Respect privacy obligations under PIPEDA and CRA privacy manuals by limiting scope to necessary information and applying data minimization.",
     "Secure internal authorization from the Tax Enforcement Director and document necessity for cross-border mutual legal assistance requests.",
+    "When leveraging World Bank or BIS data exchanges, confirm adherence to the BIS Central Bank Data Protection Charter and applicable Memoranda of Understanding with participating central banks.",
     "Coordinate with FINTRAC for suspicious transaction reporting obligations triggered by identified red flags.",
     "Document Charter of Rights considerations when compelling testimony or records; engage Department of Justice counsel as needed, especially for cross-border data sharing or MLAT requests.",
     "Maintain compliance with CRA evidentiary standards for potential criminal referral, ensuring audit-investigation firewall adherence.",
     "Explicitly prohibit technical attempts to reconstruct or brute-force private keys; limit recovery actions to legally mandated cooperation with custodians and service providers. Record periodic attestations from the investigative team acknowledging this constraint.",
-    "For U.S.-based exchanges, follow Canada-U.S. tax treaty protocols and reference 26 USC §7602 equivalents via treaty requests.",
+    "For U.S.-based exchanges, follow Canada-U.S. tax treaty protocols and reference 26 USC §7602 equivalents via treaty requests, documenting cross-filing within the Joint Chiefs of Global Tax Enforcement (J5).",
+    "For EU or UK custodians, align with GDPR Article 46 transfer mechanisms and reference ECB/ESMA supervisory colleges as part of the world-bank collaboration framework.",
     "Coordinate with Alberta’s Personal Information Protection Act (PIPA) requirements when handling employer-provided identity attestations and device telemetry."
   ],
   "deliverables": [
@@ -167,7 +180,8 @@
     "Recommendation memo summarizing proposed reassessments, civil penalties, and criteria for criminal referral, with decision tree for escalating to RCMP or FINTRAC intelligence units.",
     "Timeline visualization aligning on-chain events, fiat movements, and declared income.",
     "Data dictionary and reproducibility notes for normalized transaction schema and analytical tooling, cross-referenced to evidence bundle identifiers.",
-    "Close-out checklist documenting unresolved information requests and required follow-up actions, including deadlines and responsible investigators.",
+    "World Bank/BIS systemic risk briefing summarizing macroprudential implications, recommended sanctions coordination, and typology contributions.",
+    "Close-out checklist documenting unresolved information requests and required follow-up actions, including deadlines and responsible investigators, plus designated world-bank liaison owners.",
     "Zero-trust operations dossier summarizing environment controls, monitoring logs, and authorization checkpoints triggered during recovery coordination."
   ]
 }
