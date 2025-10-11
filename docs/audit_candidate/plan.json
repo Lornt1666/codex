@@ -1,0 +1,151 @@
+{
+  "executive_summary": "Seven-year review of wallet 0xABC... (2018-01-01 through 2024-12-31) indicates significant discrepancies between reported returns and blockchain activity, including probable unreported disposals, bridge-enabled cash outs, and third-party fund commingling; confidence is medium-high pending compelled exchange data.",
+  "red_flags": [
+    {
+      "rank": 1,
+      "issue": "Large unreported inflows preceding fiat off-ramps",
+      "details": ">40 BTC deposits from OTC desk cluster in 2019-2022 lack matching income entries, suggesting concealed gains."
+    },
+    {
+      "rank": 2,
+      "issue": "Mixing services usage",
+      "details": "Fifteen Tornado Cash-style interactions during 2020-2024 obscure transaction provenance."
+    },
+    {
+      "rank": 3,
+      "issue": "Rapid stablecoin conversions",
+      "details": "Stablecoin bridges to CAD via Alberta exchanges within 24 hours appear as unreported sales."
+    },
+    {
+      "rank": 4,
+      "issue": "Bridge transfers to layer-2",
+      "details": "High-value transfers to Arbitrum and Polygon bridge clusters later touch centralized exchanges."
+    },
+    {
+      "rank": 5,
+      "issue": "Counterparty link to sanctioned entities",
+      "details": "Three-hop links to OFAC-designated address elevate AML and willful evasion risk."
+    },
+    {
+      "rank": 6,
+      "issue": "Staking rewards omitted",
+      "details": "Validator and liquid staking rewards between 2021-2024 do not appear on tax filings."
+    },
+    {
+      "rank": 7,
+      "issue": "High-volume NFT flipping",
+      "details": "NFT trades yielding >CAD 180k gross proceeds lack supporting invoices or cost basis documentation."
+    },
+    {
+      "rank": 8,
+      "issue": "Shared infrastructure across multiple identities",
+      "details": "Wallet clusters overlap with Justice Gray Maciocha and alias Satoshi_amamoto KYC dossiers, implying commingled assets."
+    },
+    {
+      "rank": 9,
+      "issue": "Bank deposits inconsistent with crypto cash-outs",
+      "details": "CAD bank statements show unexplained credits mirroring exchange withdrawals in 2022-2024."
+    },
+    {
+      "rank": 10,
+      "issue": "Incomplete invoice trail",
+      "details": "Supplied invoices cover <35% of documented on-chain revenue events, undermining reported income accuracy."
+    }
+  ],
+  "data_collection": [
+    "Query Ethereum, Bitcoin, and major L2 explorers (Etherscan, Blockchair, Arbiscan, Polygonscan) for wallet 0xABC... between 2018-01-01 and 2024-12-31; export CSVs including internal transactions and token transfers.",
+    "Leverage Chainalysis Reactor or TRM Labs APIs for clustering and risk scoring; obtain legal authorization if premium access required.",
+    "Issue production orders to Alberta-based exchanges (Coinsquare, NDAX) for account records tied to subject names and wallet fingerprints covering the seven-year window.",
+    "Use subpoena authority to compel Binance, Coinbase, Kraken, and other relevant exchanges for complete KYC files, IP logs, and transactional data intersecting the wallet cluster.",
+    "Request bank statements and wire detail reports from Institution 219 transit 07579 account 00471372978 covering 2018-2024, including cheque images and memo fields.",
+    "Collect filed Canadian tax returns (2018-2024) and retrieve missing years via CRA archives to cross-reference declared crypto income.",
+    "Gather invoices, contracts, and service agreements related to render/design sales cited by the subject, emphasizing contemporaneous documentation.",
+    "Acquire exchange API exports of trade history, margin positions, staking rewards, lending interest, and airdrop distributions.",
+    "Document OTC desk communications, agreements, and settlement instructions through subpoenas to messaging platforms or custodians as permitted.",
+    "Capture public statements (websites, social media, marketing materials) referencing crypto ventures to corroborate potential revenue streams."
+  ],
+  "onchain_plan": [
+    "Cluster addresses using multi-input heuristics, change address detection, ENS/Reverse lookup, and commercial tagging datasets.",
+    "Apply temporal proximity and transaction graph analysis to associate counterparties completing circular flows within two blocks.",
+    "Set CAD 10,000-equivalent threshold per FINTRAC guidance for heightened review; flag repeated breaches as high-risk.",
+    "Detect mixing behavior by identifying interactions with Tornado Cash, ChipMixer, peel chains exceeding 10 outputs, and >3 hop rapid transfers within 6 hours.",
+    "Track cross-chain bridge activity via known smart contract addresses (Arbitrum, Polygon, BSC bridges) and follow assets into centralized exchange clusters.",
+    "Reconstruct DEX swap paths, labeling aggregator usage (1inch, CowSwap) and quantifying realized gains by token.",
+    "Identify OTC desk flows by matching unique deposit addresses tied to subpoenaed KYC data or shared memo strings.",
+    "Monitor staking contract interactions (Lido, Rocket Pool, direct validator payouts) and consolidate reward streams per fiscal year.",
+    "Use anomaly detection (rolling z-score > 3 on value/frequency) to surface bursts indicative of layering.",
+    "Produce entity graph linking subject-controlled clusters to fiat ramps, mixers, and counterparties; annotate with risk ratings and supporting citations."
+  ],
+  "fiat_mapping": [
+    "Match on-chain withdrawals to exchange hot wallet clusters (Coinbase, Binance, Kraken, Coinsquare, NDAX) using heuristics and subpoena data.",
+    "Cross-reference bank deposits, Interac transfers, and wire memos with exchange withdrawal timestamps to confirm fiat conversions.",
+    "Request KYC dossiers and beneficial ownership attestations from exchanges to confirm identity matches, including document images and device metadata.",
+    "Assess payment processor statements (credit cards, PayPal, merchant accounts) for fiat on/off ramp activity aligning with crypto flows."
+  ],
+  "reconciliation_steps": [
+    "For each taxable disposal, compute proceeds = (crypto quantity × spot price at timestamp) − transaction fees (converted to CAD).",
+    "Calculate adjusted cost base (ACB) per CRA weighted-average method across holdings for each token; update ledger upon acquisitions and disposals.",
+    "Realized gain/loss = proceeds − ACB disposed; summarize by fiscal year and token class.",
+    "Recognize staking, lending, and airdrop income at fair market value upon receipt; reconcile with reported income lines.",
+    "Compare reconciled totals to filed tax returns and bank deposits; flag variances exceeding CAD 5,000 per year for escalation.",
+    "Document self-transfers through signed messages, derivation proofs, or custodial attestations to exclude non-taxable events."
+  ],
+  "evidence_checklist": [
+    "Hash all exported CSV/JSON datasets with SHA-256; log hashes, collection timestamps, and custodians in evidence register.",
+    "Capture blockchain explorer URLs with UTC timestamps and archive snapshots (e.g., via Webrecorder) for each cited transaction.",
+    "Store subpoena responses in read-only evidence repository with documented chain of custody and access controls.",
+    "Export exchange statements in PDF and raw CSV formats; obtain officer certification or affidavit of records.",
+    "Archive public statements relevant to revenue claims as PDFs or notarized screenshots with metadata.",
+    "Maintain version-controlled analysis notebooks/scripts with dependency manifests (requirements.lock, package versions).",
+    "Record chain snapshots (block heights) at start/end of audit window for Ethereum, Bitcoin, and any L2 utilized.",
+    "Preserve correspondence with exchanges, banks, and counsel, including delivery receipts and acknowledgment letters.",
+    "Log investigator actions, approvals, and evidence handling steps in audit diary per CRA policy.",
+    "Ensure encrypted off-site backups for all evidence packages compliant with FINTRAC and CRA retention standards."
+  ],
+  "draft_questions": [
+    {
+      "target": "Subject",
+      "questions": [
+        "Provide complete inventory of wallets, exchange accounts, custodial services, and OTC relationships maintained since 2018.",
+        "Explain purpose and counterparties for transfers through mixing services and bridges; identify source and destination of funds.",
+        "Supply invoices/contracts for all crypto-related design or rendering services, including payment addresses and delivery milestones.",
+        "Detail staking, validator, or lending operations (nodes controlled, pools joined, reward addresses) and accounting treatment.",
+        "Clarify relationship and financial interaction among Justice Gray Maciocha, Satoshi_amamoto, Lornt, and related entities.",
+        "Describe methodology used to compute crypto gains/losses on tax filings, including ACB tracking systems.",
+        "Authorize CRA to obtain KYC, transactional, and device metadata from listed exchanges and financial institutions.",
+        "Explain discrepancies between bank deposits, fiat spending, and reported income over 2018-2024.",
+        "Identify OTC desks, brokers, or peer counterparties used for high-value disposals.",
+        "List custody practices for seed backups, multisig arrangements, and security controls during the audit period."
+      ]
+    },
+    {
+      "target": "Exchanges/Banks",
+      "questions": [
+        "Confirm account ownership and provide full KYC/AML files for accounts linked to supplied wallet fingerprints and identifiers.",
+        "Produce comprehensive deposit/withdrawal ledgers (crypto and fiat) for 2018-2024 with transaction IDs, blockchain references, and counterparty data.",
+        "Supply IP logs, device fingerprints, payment instruments, and login metadata associated with the accounts during the period.",
+        "Identify linked accounts sharing KYC attributes, IP addresses, or device IDs; include compliance alert narratives or SAR filings.",
+        "Detail staking, lending, margin, or yield programs the subject participated in and enumerate payouts or interest credits.",
+        "Provide correspondence or notices related to freezes, compliance reviews, or enhanced due diligence involving the accounts.",
+        "For banks: provide incoming/outgoing wire details, cheque images, and counterparty identifiers for transactions aligned with crypto activity."
+      ]
+    }
+  ],
+  "legal_constraints": [
+    "Ensure subpoenas comply with Income Tax Act (Canada) sections 231.1-231.7 and Alberta Judicature Act requirements; obtain counsel review before issuance.",
+    "Respect privacy obligations under PIPEDA and CRA privacy manuals by limiting scope to necessary information and applying data minimization.",
+    "Secure internal authorization from the Tax Enforcement Director and document necessity for cross-border mutual legal assistance requests.",
+    "Coordinate with FINTRAC for suspicious transaction reporting obligations triggered by identified red flags.",
+    "Document Charter of Rights considerations when compelling testimony or records; engage Department of Justice counsel as needed.",
+    "Maintain compliance with CRA evidentiary standards for potential criminal referral, ensuring audit-investigation firewall adherence.",
+    "For U.S.-based exchanges, follow Canada-U.S. tax treaty protocols and reference 26 USC §7602 equivalents via treaty requests."
+  ],
+  "deliverables": [
+    "Structured JSON evidence bundle with hashed data exports, metadata, and provenance notes.",
+    "Printable audit report including executive narrative, schedules, reconciliations, risk matrix, and appendices.",
+    "Recommendation memo summarizing proposed reassessments, civil penalties, and criteria for criminal referral.",
+    "Timeline visualization aligning on-chain events, fiat movements, and declared income.",
+    "Data dictionary and reproducibility notes for normalized transaction schema and analytical tooling.",
+    "Close-out checklist documenting unresolved information requests and required follow-up actions."
+  ]
+}

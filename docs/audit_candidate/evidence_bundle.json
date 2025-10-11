@@ -1,0 +1,82 @@
+{
+  "subject": "Justice Gray Maciocha / Satoshi_amamoto / Lornt",
+  "wallets": ["0xABC..."],
+  "period": {"start": "2018-01-01", "end": "2024-12-31"},
+  "jurisdiction": "Canada/Alberta",
+  "priority": "high",
+  "resources": {"subpoena_power": true, "exchange_access": true},
+  "evidence_items": [
+    {
+      "id": "onchain_export_eth",
+      "type": "csv",
+      "description": "Ethereum transaction export from Etherscan (2018-2024)",
+      "hash": "SHA256 TBD",
+      "source": "https://etherscan.io/address/0xABC...",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "onchain_export_btc",
+      "type": "csv",
+      "description": "Bitcoin transaction export from Blockchair (2018-2024)",
+      "hash": "SHA256 TBD",
+      "source": "https://blockchair.com/bitcoin/address/0xABC...",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "bank_statements",
+      "type": "pdf",
+      "description": "Institution 219 transit 07579 account 00471372978 statements (2018-2024)",
+      "hash": "SHA256 TBD",
+      "source": "Bank production",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "exchange_trade_history",
+      "type": "csv",
+      "description": "Coinsquare/Binance/NDAX trade exports (2018-2024)",
+      "hash": "SHA256 TBD",
+      "source": "Exchange subpoena response",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "tax_returns",
+      "type": "pdf",
+      "description": "Subject-filed Canadian tax returns 2018-2024",
+      "hash": "SHA256 TBD",
+      "source": "CRA records",
+      "collected_at": "TBD"
+    }
+  ],
+  "analysis_artifacts": [
+    {
+      "id": "normalized_transactions",
+      "type": "json",
+      "description": "Standardized transaction dataset per normalization guidelines",
+      "hash": "SHA256 TBD",
+      "generated_with": "audit-normalizer v1.0",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "entity_graph",
+      "type": "graphml",
+      "description": "Cluster graph linking subject to exchanges, mixers, and OTC desks",
+      "hash": "SHA256 TBD",
+      "generated_with": "Chainalysis export",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "dashboard_metrics",
+      "type": "json",
+      "description": "Aggregated inflow/outflow/gain metrics derived from normalized set",
+      "hash": "SHA256 TBD",
+      "generated_with": "audit-dashboard v0.3",
+      "collected_at": "TBD"
+    }
+  ],
+  "chain_snapshots": [
+    {"chain": "Ethereum", "block_height": "18500000", "timestamp": "2024-12-31T23:59:59Z"},
+    {"chain": "Bitcoin", "block_height": "840000", "timestamp": "2024-12-31T23:59:59Z"},
+    {"chain": "Arbitrum", "block_height": "196000000", "timestamp": "2024-12-31T23:59:59Z"}
+  ],
+  "notes": "Populate TBD fields upon evidence acquisition; maintain chain-of-custody log and reference audit diary entry numbers."
+}
