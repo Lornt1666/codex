@@ -18,6 +18,7 @@ Expect CSV or JSON with fields: `tx_hash`, `timestamp`, `from`, `to`, `value`, `
    - `mining`, `airdrop`, `staking_reward`, `other` as applicable.
 7. Populate `reason` with concise justification referencing heuristics, e.g., "Outbound to Binance hot wallet; fiat ramp per subpoena response".
 8. Flag suspicious behavior by attaching `meta_tags` such as `suspicious_flow` when interacting with mixers, cross-chain bridges, or >3 hop rapid transfers within 6 hours.
+9. Correlate custodial recovery events by recording ticket IDs, reset timestamps, or MFA challenge references when on-chain movement aligns with account recovery activity.
 
 ## Output Record Template
 ```
@@ -30,11 +31,13 @@ Expect CSV or JSON with fields: `tx_hash`, `timestamp`, `from`, `to`, `value`, `
   "taxable_event": true|false,
   "event_type": "sale|swap|transfer|mining|airdrop|staking_reward|other",
   "reason": "<short rationale>",
- "meta": {
+  "meta": {
     "suspicious_flow": true|false,
     "source_references": ["<explorer_url>", "<price_api_reference>"],
     "authorization_reference": "<legal_order_id>",
-    "kyc_match_status": "match|mismatch|pending"
+    "kyc_match_status": "match|mismatch|pending",
+    "recovery_event_id": "<ticket_or_reset_id>",
+    "zero_trust_session_id": "<workstation_log_id>"
   }
 }
 ```
@@ -46,6 +49,7 @@ Expect CSV or JSON with fields: `tx_hash`, `timestamp`, `from`, `to`, `value`, `
 - `suspicious_tx_count`: Count of transactions flagged with `suspicious_flow` true.
 - Provide breakdowns by token, settlement layer, and fiscal year.
 - Summarize IP/device correlation findings (e.g., number of events with mismatched KYC metadata).
+- Track `recovery_event_count`: Transactions associated with password/MFA reset activity or custodial recovery tickets.
 
 ## Evidence Notes
 - Store normalization scripts with version control tags.
@@ -53,3 +57,4 @@ Expect CSV or JSON with fields: `tx_hash`, `timestamp`, `from`, `to`, `value`, `
 - Include reproducibility manifest detailing software versions and configuration.
 - Reference legal authorization IDs tied to each dataset and confirm that inputs were obtained without attempting unauthorized key reconstruction or wallet intrusion.
 - Record investigator attestation dates acknowledging compliance with recovery constraints.
+- Archive zero-trust monitoring artifacts that underpin `zero_trust_session_id` references.

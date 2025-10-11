@@ -4,8 +4,8 @@ Line3: USDT bridge cash-out (tx 0xswap456) routed through Coinsquare hot wallet 
 Line4: BTC bridge 0xbridge789 -> 0xcz111 funneled 9 BTC via BSC prior to Binance withdrawal, bypassing direct domestic reporting.
 Line5: Staking reward stream (tx 0xstake222) compounds monthly with CAD 410k FMV absent from 2021-2024 returns.
 Line6: NFT flip (tx 0xnft333) realized 38 WETH gross without matching invoice set; cost basis evidence still missing.
-Line7: Identity metadata mismatch—Binance login IP 185.xxx overlaps with VPN provider; device fingerprint diverges from KYC dossier.
-Line8: Estimated unreported taxable events: 150 BTC disposals, 1,120 ETH swaps, CAD 260k other tokens; confidence high-minus pending ISP subpoenas.
+Line7: Identity telemetry mismatch—Binance login IP 185.xxx overlaps with VPN provider and ties to repeated MFA resets flagged in custodial recovery tickets.
+Line8: Estimated unreported taxable events: 150 BTC disposals, 1,120 ETH swaps, CAD 260k other tokens; confidence high-minus pending ISP subpoenas and device forensic imaging.
 Action1: Issue immediate subpoenas to Coinsquare, Binance, NDAX, and Institution 219/07579/00471372978 for KYC, transaction logs, and device/IP metadata.
 Action2: Open full audit with forensic tracing over seven-year lookback focusing on mixers, bridges, OTC flows, and identity anomaly remediation.
-Action3: Freeze potential assessments pending reconciliation; document that recovery efforts remain limited to authorized custodial processes—no technical seed reconstruction—and prepare MLAT drafts if cross-border venues persist.
+Action3: Freeze potential assessments pending reconciliation; document zero-trust recovery controls (no technical seed reconstruction) and prepare MLAT drafts if cross-border venues persist.

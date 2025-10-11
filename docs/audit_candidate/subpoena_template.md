@@ -24,10 +24,12 @@ Scope of Request
 2. Transaction Histories: Provide detailed deposit and withdrawal histories (crypto and fiat) for the period {start_date} through {end_date}, including timestamps (UTC), transaction identifiers, token types, amounts, wallet addresses, and any linked bank/payment instruments.
 3. Metadata: Provide associated IP address logs, device fingerprints, login timestamps, payment methods, and compliance alerts generated for the above accounts during the referenced period, including any velocity, VPN, or proxy flags raised by your systems.
 4. Security Controls: Provide multi-factor authentication enrollment data, reset history, and recovery ticket correspondence tied to the accounts for the period {start_date} through {end_date}.
+5. Recovery Telemetry: Provide helpdesk communications, zero-trust session logs, and any device attestation artifacts issued during account recovery, including IP/device context for each reset attempt.
 
 Production Instructions
 - Records must be certified by an authorized officer pursuant to section 241 of the Income Tax Act and Evidence Act provisions.
 - Electronic records shall be supplied in CSV and PDF formats, accompanied by SHA-256 hash values for integrity verification and a manifest linking each file to the relevant legal authorization reference number.
+- Zero-trust or session monitoring exports should be provided in original machine-readable format (JSON/LOG) with associated hash attestations.
 - Include a cover affidavit attesting to the authenticity and completeness of the produced materials.
 
 Failure to Comply

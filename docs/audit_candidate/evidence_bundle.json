@@ -77,6 +77,22 @@
       "hash": "SHA256 TBD",
       "source": "Exchange subpoena response",
       "collected_at": "TBD"
+    },
+    {
+      "id": "device_forensic_images",
+      "type": "img",
+      "description": "Forensic images of claimant mobile and workstation devices with authenticator telemetry",
+      "hash": "SHA256 TBD",
+      "source": "Digital forensics lab",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "custodial_recovery_tickets",
+      "type": "pdf",
+      "description": "Helpdesk ticket exports showing password/MFA resets and recovery communications",
+      "hash": "SHA256 TBD",
+      "source": "Exchange compliance responses",
+      "collected_at": "TBD"
     }
   ],
   "analysis_artifacts": [
@@ -111,6 +127,14 @@
       "hash": "SHA256 TBD",
       "generated_with": "forensic-linker v1.1",
       "collected_at": "TBD"
+    },
+    {
+      "id": "zero_trust_audit_log",
+      "type": "jsonl",
+      "description": "Consolidated zero-trust monitoring exports documenting recovery workspace activity",
+      "hash": "SHA256 TBD",
+      "generated_with": "zt-collector v0.4",
+      "collected_at": "TBD"
     }
   ],
   "chain_snapshots": [
@@ -118,5 +142,5 @@
     {"chain": "Bitcoin", "block_height": "840000", "timestamp": "2024-12-31T23:59:59Z"},
     {"chain": "Arbitrum", "block_height": "196000000", "timestamp": "2024-12-31T23:59:59Z"}
   ],
-  "notes": "Populate TBD fields upon evidence acquisition; maintain chain-of-custody log, reference audit diary entry numbers, log quarterly access-control reviews, and record confirmation plus team attestations that no unauthorized key reconstruction attempts were undertaken."
+  "notes": "Populate TBD fields upon evidence acquisition; maintain chain-of-custody log, reference audit diary entry numbers, log quarterly access-control reviews, capture zero-trust monitoring hashes, and record confirmation plus team attestations that no unauthorized key reconstruction attempts were undertaken."
 }

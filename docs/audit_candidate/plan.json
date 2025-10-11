@@ -55,6 +55,11 @@
       "rank": 11,
       "issue": "Identity metadata mismatch",
       "details": "Subpoena previews reveal divergent device fingerprints and IP ranges relative to declared residence, suggesting proxy usage or third-party account control."
+    },
+    {
+      "rank": 12,
+      "issue": "Custodial recovery anomalies",
+      "details": "Exchange helpdesk logs show repeated MFA resets and failed biometric checks immediately before high-value outflows."
     }
   ],
   "data_collection": [
@@ -68,7 +73,9 @@
     "Acquire exchange API exports of trade history, margin positions, staking rewards, lending interest, and airdrop distributions.",
     "Secure ISP subscriber records linking subject addresses to observed IP logs to confirm residency and detect proxy services.",
     "Document OTC desk communications, agreements, and settlement instructions through subpoenas to messaging platforms or custodians as permitted; include key custody acknowledgements.",
-    "Capture public statements (websites, social media, marketing materials) referencing crypto ventures to corroborate potential revenue streams and archive geotag/IP information when available."
+    "Capture public statements (websites, social media, marketing materials) referencing crypto ventures to corroborate potential revenue streams and archive geotag/IP information when available.",
+    "Image claimant devices (mobile, hardware wallet controllers, laptops) under warrant; extract authenticator app seeds, biometric enrollment logs, and wallet application telemetry via certified digital forensics workflows.",
+    "Request push-notification audit logs and recovery ticket histories from custodial services to map password/MFA resets against movement of funds."
   ],
   "onchain_plan": [
     "Cluster addresses using multi-input heuristics, change address detection, ENS/Reverse lookup, and commercial tagging datasets.",
@@ -80,13 +87,15 @@
     "Identify OTC desk flows by matching unique deposit addresses tied to subpoenaed KYC data or shared memo strings.",
     "Monitor staking contract interactions (Lido, Rocket Pool, direct validator payouts) and consolidate reward streams per fiscal year; reconcile validator performance metrics to detect undeclared operators.",
     "Use anomaly detection (rolling z-score > 3 on value/frequency) to surface bursts indicative of layering.",
-    "Produce entity graph linking subject-controlled clusters to fiat ramps, mixers, and counterparties; annotate with risk ratings, supporting citations, and identity confidence tiers."
+    "Produce entity graph linking subject-controlled clusters to fiat ramps, mixers, and counterparties; annotate with risk ratings, supporting citations, and identity confidence tiers.",
+    "Overlay custodial recovery timelines (password resets, device re-enrollments) on transaction graph to isolate compromise windows."
   ],
   "fiat_mapping": [
     "Match on-chain withdrawals to exchange hot wallet clusters (Coinbase, Binance, Kraken, Coinsquare, NDAX) using heuristics and subpoena data.",
     "Cross-reference bank deposits, Interac transfers, and wire memos with exchange withdrawal timestamps to confirm fiat conversions; map device/IP metadata from online banking logs to exchange login IPs.",
     "Request KYC dossiers and beneficial ownership attestations from exchanges to confirm identity matches, including document images, selfie verification captures, IP logs, and device metadata.",
-    "Assess payment processor statements (credit cards, PayPal, merchant accounts) for fiat on/off ramp activity aligning with crypto flows."
+    "Assess payment processor statements (credit cards, PayPal, merchant accounts) for fiat on/off ramp activity aligning with crypto flows.",
+    "Compare securities/FX brokerage statements for potential crypto-linked cash sweeps or derivative hedges synchronized with on-chain movements."
   ],
   "reconciliation_steps": [
     "For each taxable disposal, compute proceeds = (crypto quantity × spot price at timestamp) − transaction fees (converted to CAD).",
@@ -94,7 +103,8 @@
     "Realized gain/loss = proceeds − ACB disposed; summarize by fiscal year and token class.",
     "Recognize staking, lending, and airdrop income at fair market value upon receipt; reconcile with reported income lines and confirm inclusion of associated withholding statements when applicable.",
     "Compare reconciled totals to filed tax returns, bank deposits, and invoiced revenue; flag variances exceeding CAD 5,000 per year for escalation and document causal hypotheses.",
-    "Document self-transfers through signed messages, derivation proofs, or custodial attestations to exclude non-taxable events."
+    "Document self-transfers through signed messages, derivation proofs, or custodial attestations to exclude non-taxable events.",
+    "Record derivative and perpetual futures positions that hedge on-chain holdings to ensure gains/losses are paired with related fiat settlements."
   ],
   "evidence_checklist": [
     "Hash all exported CSV/JSON datasets with SHA-256; log hashes, collection timestamps, and custodians in evidence register.",
@@ -106,7 +116,8 @@
     "Record chain snapshots (block heights) at start/end of audit window for Ethereum, Bitcoin, and any L2 utilized; include RPC endpoint details and access credentials where reproducibility requires.",
     "Preserve correspondence with exchanges, banks, and counsel, including delivery receipts, acknowledgment letters, and secure file transfer logs.",
     "Log investigator actions, approvals, and evidence handling steps in audit diary per CRA policy.",
-    "Ensure encrypted off-site backups for all evidence packages compliant with FINTRAC and CRA retention standards; review access control lists quarterly."
+    "Ensure encrypted off-site backups for all evidence packages compliant with FINTRAC and CRA retention standards; review access control lists quarterly.",
+    "Archive zero-trust monitoring feeds (screen captures, system logs) linked to recovery activities with hash manifests and retention schedules."
   ],
   "draft_questions": [
     {
@@ -121,7 +132,8 @@
         "Authorize CRA to obtain KYC, transactional, and device metadata from listed exchanges and financial institutions.",
         "Explain discrepancies between bank deposits, fiat spending, and reported income over 2018-2024; address mismatched IP/device usage noted in custodial records.",
         "Identify OTC desks, brokers, or peer counterparties used for high-value disposals.",
-        "List custody practices for seed backups, multisig arrangements, and security controls during the audit period; disclose any lost-access incidents and remediation efforts."
+        "List custody practices for seed backups, multisig arrangements, and security controls during the audit period; disclose any lost-access incidents and remediation efforts.",
+        "Detail requests made to exchanges or wallet providers for account recovery, including ticket numbers, outcomes, and any temporary credential issuance."
       ]
     },
     {
@@ -133,7 +145,8 @@
         "Identify linked accounts sharing KYC attributes, IP addresses, or device IDs; include compliance alert narratives or SAR filings.",
         "Detail staking, lending, margin, or yield programs the subject participated in and enumerate payouts or interest credits.",
         "Provide correspondence or notices related to freezes, compliance reviews, or enhanced due diligence involving the accounts.",
-        "For banks: provide incoming/outgoing wire details, cheque images, counterparty identifiers, and online banking session metadata for transactions aligned with crypto activity."
+        "For banks: provide incoming/outgoing wire details, cheque images, counterparty identifiers, and online banking session metadata for transactions aligned with crypto activity.",
+        "Disclose security incident reports, suspicious activity reports, or fraud investigations initiated following customer recovery requests tied to the subject identifiers."
       ]
     }
   ],
@@ -145,7 +158,8 @@
     "Document Charter of Rights considerations when compelling testimony or records; engage Department of Justice counsel as needed, especially for cross-border data sharing or MLAT requests.",
     "Maintain compliance with CRA evidentiary standards for potential criminal referral, ensuring audit-investigation firewall adherence.",
     "Explicitly prohibit technical attempts to reconstruct or brute-force private keys; limit recovery actions to legally mandated cooperation with custodians and service providers. Record periodic attestations from the investigative team acknowledging this constraint.",
-    "For U.S.-based exchanges, follow Canada-U.S. tax treaty protocols and reference 26 USC §7602 equivalents via treaty requests."
+    "For U.S.-based exchanges, follow Canada-U.S. tax treaty protocols and reference 26 USC §7602 equivalents via treaty requests.",
+    "Coordinate with Alberta’s Personal Information Protection Act (PIPA) requirements when handling employer-provided identity attestations and device telemetry."
   ],
   "deliverables": [
     "Structured JSON evidence bundle with hashed data exports, metadata, and provenance notes, including authorization reference numbers for each dataset.",
@@ -153,6 +167,7 @@
     "Recommendation memo summarizing proposed reassessments, civil penalties, and criteria for criminal referral, with decision tree for escalating to RCMP or FINTRAC intelligence units.",
     "Timeline visualization aligning on-chain events, fiat movements, and declared income.",
     "Data dictionary and reproducibility notes for normalized transaction schema and analytical tooling, cross-referenced to evidence bundle identifiers.",
-    "Close-out checklist documenting unresolved information requests and required follow-up actions, including deadlines and responsible investigators."
+    "Close-out checklist documenting unresolved information requests and required follow-up actions, including deadlines and responsible investigators.",
+    "Zero-trust operations dossier summarizing environment controls, monitoring logs, and authorization checkpoints triggered during recovery coordination."
   ]
 }
