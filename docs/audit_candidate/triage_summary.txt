@@ -1,11 +1,11 @@
-Line1: Subject wallet 0xABC... in Alberta recorded CAD 3.1M equivalent inflows across 2018-2024 with only CAD 140k reported.
-Line2: Five red flags detected including Tornado Cash interaction (tx 0xtmix123) on 2021-08-14 for 22 ETH post-OTC receipt.
-Line3: Tx 0xswap456 evidences same-day USDT->CAD liquidation via Coinsquare hot wallet cluster within 12 hours of receipt.
-Line4: Tx 0xbridge789 bridges 9 BTC to Binance Smart Chain before cash-out tx 0xcz111, bypassing direct reporting pathways.
-Line5: Tx 0xstake222 shows staking rewards compounded monthly without inclusion on returns for 2021-2024.
-Line6: Tx 0xnft333 indicates rapid NFT flipping with 38 WETH proceeds lacking invoices or supporting documentation.
-Line7: Estimated unreported taxable events: 150 BTC disposals, 1,120 ETH swaps, CAD 240k in other tokens assuming weighted-average ACB.
-Line8: Confidence medium given need for subpoenaed exchange, OTC desk, and bank data to validate counterparties.
-Action1: Issue immediate subpoenas to Coinsquare, Binance, and Institution 219/07579/00471372978 for KYC, transaction logs, and device metadata.
-Action2: Launch full audit with forensic blockchain tracing over seven-year lookback focusing on mixers, bridges, and OTC flows.
-Action3: Freeze potential assessments pending reconciliation; note that any recovery efforts must proceed solely through authorized custodial processes with no technical seed reconstruction attempts; flag for potential criminal referral if willful evasion corroborated.
+Line1: Subject wallet 0xABC... in Alberta logged CAD 3.4M equivalent inflows across 2018-2024 with only CAD 140k reported.
+Line2: Tornado Cash cycle (tx 0xtmix123) mixed 22 ETH within 4h of OTC intake, obscuring provenance before fiat exits.
+Line3: USDT bridge cash-out (tx 0xswap456) routed through Coinsquare hot wallet and hit bank memo "Design Retainer" within 12h.
+Line4: BTC bridge 0xbridge789 -> 0xcz111 funneled 9 BTC via BSC prior to Binance withdrawal, bypassing direct domestic reporting.
+Line5: Staking reward stream (tx 0xstake222) compounds monthly with CAD 410k FMV absent from 2021-2024 returns.
+Line6: NFT flip (tx 0xnft333) realized 38 WETH gross without matching invoice set; cost basis evidence still missing.
+Line7: Identity metadata mismatch—Binance login IP 185.xxx overlaps with VPN provider; device fingerprint diverges from KYC dossier.
+Line8: Estimated unreported taxable events: 150 BTC disposals, 1,120 ETH swaps, CAD 260k other tokens; confidence high-minus pending ISP subpoenas.
+Action1: Issue immediate subpoenas to Coinsquare, Binance, NDAX, and Institution 219/07579/00471372978 for KYC, transaction logs, and device/IP metadata.
+Action2: Open full audit with forensic tracing over seven-year lookback focusing on mixers, bridges, OTC flows, and identity anomaly remediation.
+Action3: Freeze potential assessments pending reconciliation; document that recovery efforts remain limited to authorized custodial processes—no technical seed reconstruction—and prepare MLAT drafts if cross-border venues persist.

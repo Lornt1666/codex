@@ -24,29 +24,36 @@ This document outlines compliant steps for investigating and documenting lost-ac
    - Hash and archive all supplied documents and communications.
    - Store forensic images of affected devices when available, observing digital evidence handling standards.
 
-## 3. Cooperative Recovery Channels
+## 3. Identity Assurance and Network Attribution
+- **Government ID validation**: Require high-resolution scans or in-person notarized copies of passports, driver’s licenses, or provincial ID cards. Cross-check document numbers against issuing authority databases where permitted.
+- **IP address correlation**: Request historical login IPs from exchanges and custodians; compare against claimant-provided IP history or ISP billing records. Note geolocation discrepancies that may signal compromise.
+- **Device provenance**: Collect device serial numbers, MAC addresses, and secure element identifiers from hardware wallets or authenticating devices. Confirm alignment with metadata disclosed by custodians.
+- **Multi-factor proof**: Where possible, require recovery sign-offs via previously enrolled MFA channels (e.g., authenticator apps, recovery emails) to ensure the claimant retains control.
+- **Documentation trail**: Log each verification artifact, reviewer, and validation outcome in the audit diary to satisfy evidentiary standards.
+
+## 4. Cooperative Recovery Channels
 - **Centralized exchanges**: Submit notarized affidavits and KYC packets through compliance desks. Require acknowledgement of freeze/lock status and ticket numbers for traceability.
 - **Hardware/software wallet vendors**: Engage support for logs, firmware guidance, or warranty records. Vendors cannot restore seed phrases but may confirm device usage patterns or assist with firmware integrity checks.
 - **Institutional custodians**: Where third-party custodians hold partial keys, follow contractual recovery procedures and ensure multi-party approvals are recorded.
 - **Law enforcement liaison**: If criminal activity is suspected, coordinate with cybercrime units; provide investigative briefs and warrants as required.
 
-## 4. Investigative Analytics
+## 5. Investigative Analytics
 - Map on-chain flows from the claimant’s addresses to identify custodial endpoints.
 - Use clustering heuristics to associate related addresses; document confidence levels and methodologies.
 - Monitor outbound transfers for mixers, privacy-enhancing tools, or off-ramps that signal third-party custody.
 - Record any indications that keys may have been compromised (e.g., sudden change in spending patterns) to inform potential criminal complaints.
 
-## 5. Communication Templates
+## 6. Communication Templates
 - Prepare standardized questionnaires for exchanges and wallet providers, focusing on ownership proof, access logs, and recovery eligibility.
 - Maintain audit trails of requests, responses, and authorization letters.
 - Document responses declining assistance and the legal rationale cited to support potential follow-up orders.
 
-## 6. Escalation and Resolution
+## 7. Escalation and Resolution
 - If ownership is corroborated, facilitate the subject’s engagement with custodial services to regain access through official recovery channels.
 - When on-chain assets remain in self-custody wallets, advise on civil remedies (e.g., court orders compelling assistance from involved parties).
 - Document final outcomes, including unsuccessful recovery attempts, to support future legal or regulatory actions.
 
-## 7. Compliance Checklist
+## 8. Compliance Checklist
 - [ ] Authority validated (warrant, subpoena, or written consent)
 - [ ] Identity verified against trusted sources
 - [ ] Evidence preserved with hashes and timestamps

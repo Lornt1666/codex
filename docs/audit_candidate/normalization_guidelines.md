@@ -30,9 +30,11 @@ Expect CSV or JSON with fields: `tx_hash`, `timestamp`, `from`, `to`, `value`, `
   "taxable_event": true|false,
   "event_type": "sale|swap|transfer|mining|airdrop|staking_reward|other",
   "reason": "<short rationale>",
-  "meta": {
+ "meta": {
     "suspicious_flow": true|false,
-    "source_references": ["<explorer_url>", "<price_api_reference>"]
+    "source_references": ["<explorer_url>", "<price_api_reference>"],
+    "authorization_reference": "<legal_order_id>",
+    "kyc_match_status": "match|mismatch|pending"
   }
 }
 ```
@@ -42,10 +44,12 @@ Expect CSV or JSON with fields: `tx_hash`, `timestamp`, `from`, `to`, `value`, `
 - `total_outflows`: Sum of fiat values for outbound events.
 - `realized_gains_estimate`: Sum over taxable disposals of (proceeds - adjusted cost base).
 - `suspicious_tx_count`: Count of transactions flagged with `suspicious_flow` true.
-- Provide breakdowns by token and fiscal year.
+- Provide breakdowns by token, settlement layer, and fiscal year.
+- Summarize IP/device correlation findings (e.g., number of events with mismatched KYC metadata).
 
 ## Evidence Notes
 - Store normalization scripts with version control tags.
 - Log API sources, response hashes, and rate-limit considerations.
 - Include reproducibility manifest detailing software versions and configuration.
 - Reference legal authorization IDs tied to each dataset and confirm that inputs were obtained without attempting unauthorized key reconstruction or wallet intrusion.
+- Record investigator attestation dates acknowledging compliance with recovery constraints.
