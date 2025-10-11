@@ -19,7 +19,7 @@
       "type": "csv",
       "description": "Bitcoin transaction export from Blockchair (2018-2024)",
       "hash": "SHA256 TBD",
-      "source": "https://blockchair.com/bitcoin/address/0xABC...",
+      "source": "https://blockchair.com/bitcoin/address/bc1qexample...",
       "collected_at": "TBD"
     },
     {
@@ -44,6 +44,14 @@
       "description": "Subject-filed Canadian tax returns 2018-2024",
       "hash": "SHA256 TBD",
       "source": "CRA records",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "legal_authorizations",
+      "type": "pdf",
+      "description": "Court orders, subpoenas, or consent letters authorizing recovery actions",
+      "hash": "SHA256 TBD",
+      "source": "CRA legal services",
       "collected_at": "TBD"
     }
   ],
@@ -78,5 +86,5 @@
     {"chain": "Bitcoin", "block_height": "840000", "timestamp": "2024-12-31T23:59:59Z"},
     {"chain": "Arbitrum", "block_height": "196000000", "timestamp": "2024-12-31T23:59:59Z"}
   ],
-  "notes": "Populate TBD fields upon evidence acquisition; maintain chain-of-custody log and reference audit diary entry numbers."
+  "notes": "Populate TBD fields upon evidence acquisition; maintain chain-of-custody log, reference audit diary entry numbers, and record confirmation that no unauthorized key reconstruction attempts were undertaken."
 }

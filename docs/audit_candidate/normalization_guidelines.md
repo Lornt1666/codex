@@ -48,3 +48,4 @@ Expect CSV or JSON with fields: `tx_hash`, `timestamp`, `from`, `to`, `value`, `
 - Store normalization scripts with version control tags.
 - Log API sources, response hashes, and rate-limit considerations.
 - Include reproducibility manifest detailing software versions and configuration.
+- Reference legal authorization IDs tied to each dataset and confirm that inputs were obtained without attempting unauthorized key reconstruction or wallet intrusion.

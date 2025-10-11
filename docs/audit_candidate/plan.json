@@ -138,6 +138,7 @@
     "Coordinate with FINTRAC for suspicious transaction reporting obligations triggered by identified red flags.",
     "Document Charter of Rights considerations when compelling testimony or records; engage Department of Justice counsel as needed.",
     "Maintain compliance with CRA evidentiary standards for potential criminal referral, ensuring audit-investigation firewall adherence.",
+    "Explicitly prohibit technical attempts to reconstruct or brute-force private keys; limit recovery actions to legally mandated cooperation with custodians and service providers.",
     "For U.S.-based exchanges, follow Canada-U.S. tax treaty protocols and reference 26 USC §7602 equivalents via treaty requests."
   ],
   "deliverables": [
