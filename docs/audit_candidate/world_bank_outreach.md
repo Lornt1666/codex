@@ -44,6 +44,8 @@ function coordinate_world_bank_outreach(case_id,
         record_comm_log(case_id, allocation.recipient, result)
         if result.status == "failure" and result.retry_count >= 3:
             escalate_to_counsel(case_id, allocation.recipient, result)
+        if result.status == "failure" and result.fallback_channel_attempted:
+            raise_control_alert(case_id, allocation.recipient, result)
     consolidate_receipts(case_id)
     return generate_outreach_report(case_id)
 ```
@@ -54,6 +56,8 @@ function coordinate_world_bank_outreach(case_id,
 - **Rate limiting**: Enforce per-recipient throttles to avoid being flagged as spam and to respect supervisory portal constraints.
 - **Monitoring**: Emit metrics (success count, retry rate, suppression count) to the multilateral observability dashboard.
 - **Incident hooks**: If anomaly detection flags suspicious behavior (e.g., roster tampering, unauthorized policy changes), automatically suspend the job and alert security operations.
+- **Bypass prohibition**: Disallow unapproved fallback transports; any request to use unsanctioned channels must be rejected automatically and surfaced for manual legal review with a documented denial entry.
+- **Failure attestations**: For each unrecovered delivery after manual escalation, capture a compliance officer attestation confirming that no circumvention attempts were made prior to closing the ticket.
 
 ## 6. Deliverables
 - Outreach execution report summarizing recipients contacted, successful deliveries, and outstanding escalations.
