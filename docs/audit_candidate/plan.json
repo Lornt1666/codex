@@ -174,6 +174,27 @@
     "For EU or UK custodians, align with GDPR Article 46 transfer mechanisms and reference ECB/ESMA supervisory colleges as part of the world-bank collaboration framework.",
     "Coordinate with Alberta’s Personal Information Protection Act (PIPA) requirements when handling employer-provided identity attestations and device telemetry."
   ],
+  "global_outreach": {
+    "objective": "Automate compliant notification of audit findings to world banking authorities without unauthorized disclosure.",
+    "function_reference": "docs/audit_candidate/world_bank_outreach.md",
+    "preconditions": [
+      "Validated legal mandate uploaded to multilateral compliance vault",
+      "Signed contact rosters ingested from BIS, World Bank, IMF, and regional development banks",
+      "Distribution policy approved by audit lead and compliance officer"
+    ],
+    "execution_steps": [
+      "Trigger enclave scheduler with case_id and legal authorization hash",
+      "Segment recipients by supervisory remit (prudential, AML/FIU, crisis management)",
+      "Assemble cryptographically signed packets referencing hashed evidence artifacts",
+      "Deliver via enclave relay with mutually authenticated channels and per-recipient expirations",
+      "Capture delivery receipts, retry logs, and escalation tickets for failed attempts"
+    ],
+    "evidence_outputs": [
+      "Communications ledger export (CSV/JSON) with timestamps, message hashes, and acknowledgment IDs",
+      "Scheduler audit log summarizing legal authority checks and suppression events",
+      "Quarterly outreach control review memo with remediation tracking"
+    ]
+  },
   "deliverables": [
     "Structured JSON evidence bundle with hashed data exports, metadata, and provenance notes, including authorization reference numbers for each dataset.",
     "Printable audit report including executive narrative, schedules, reconciliations, risk matrix, appendix of IP/device analytics, and appendices.",
@@ -181,6 +202,7 @@
     "Timeline visualization aligning on-chain events, fiat movements, and declared income.",
     "Data dictionary and reproducibility notes for normalized transaction schema and analytical tooling, cross-referenced to evidence bundle identifiers.",
     "World Bank/BIS systemic risk briefing summarizing macroprudential implications, recommended sanctions coordination, and typology contributions.",
+    "Multilateral outreach execution report summarizing recipients contacted, delivery outcomes, and escalation tickets linked to communications ledger entries.",
     "Close-out checklist documenting unresolved information requests and required follow-up actions, including deadlines and responsible investigators, plus designated world-bank liaison owners.",
     "Zero-trust operations dossier summarizing environment controls, monitoring logs, and authorization checkpoints triggered during recovery coordination."
   ]

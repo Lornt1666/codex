@@ -38,6 +38,7 @@ Expect CSV or JSON with fields: `tx_hash`, `timestamp`, `from`, `to`, `value`, `
     "multilateral_case_id": "<world_bank_bis_case_id>",
     "kyc_match_status": "match|mismatch|pending",
     "recovery_event_id": "<ticket_or_reset_id>",
+    "outreach_delivery_id": "<communications_ledger_entry>",
     "zero_trust_session_id": "<workstation_log_id>"
   }
 }
@@ -52,6 +53,7 @@ Expect CSV or JSON with fields: `tx_hash`, `timestamp`, `from`, `to`, `value`, `
 - Provide cross-currency summaries aligned to BIS/World Bank systemic dashboards (CAD/USD/EUR equivalents).
 - Summarize IP/device correlation findings (e.g., number of events with mismatched KYC metadata).
 - Track `recovery_event_count`: Transactions associated with password/MFA reset activity or custodial recovery tickets.
+- Track `outreach_notifications`: Count of communication ledger entries linked to transaction clusters for supervisory alerts.
 
 ## Evidence Notes
 - Store normalization scripts with version control tags.
@@ -60,3 +62,4 @@ Expect CSV or JSON with fields: `tx_hash`, `timestamp`, `from`, `to`, `value`, `
 - Reference legal authorization IDs tied to each dataset and confirm that inputs were obtained without attempting unauthorized key reconstruction or wallet intrusion; include world-bank/BIS data-sharing approval identifiers when shared across borders.
 - Record investigator attestation dates acknowledging compliance with recovery constraints.
 - Archive zero-trust monitoring artifacts that underpin `zero_trust_session_id` references and capture BIS enclave session attestations when applicable.
+- Link communications ledger exports referenced via `outreach_delivery_id` and hash them to the evidence register.

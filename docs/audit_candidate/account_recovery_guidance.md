@@ -82,4 +82,28 @@ uthority ambiguities) and escalate to counsel before resumption.
 - [ ] Recovery ticket, MFA reset, and transaction correlations independently reviewed and signed off
 - [ ] Final report issued to the requesting agency or client
 
+## 10. Multilateral Outreach Automation
+- **Legal gatekeeping**: Ensure an enforceable mandate authorizes multilateral outreach. Upload the mandate to the secure case vault and record its reference number in the automation scheduler before the first notification run.
+- **Authoritative directory ingestion**: Pull the latest contact rosters from BIS, World Bank Financial Sector Integrity, IMF safeguards, and regional development bank coordination portals. Hash and timestamp each roster import; reject unsigned or unverifiable feeds.
+- **Recipient policy tagging**: Map each institution’s statutory remit (prudential supervision, AML enforcement, financial intelligence, crisis management) and label message segments so only relevant sections are shared with each category. Suppress delivery if the mandate scope excludes a given audience.
+- **Message packaging**: Generate cryptographically signed briefing bundles that include the executive summary, prioritized red flags, evidence manifest, and normalization specification references. Embed share-by links to the hashed artifacts rather than raw attachments to minimize data spillage.
+- **Transmission controls**: Route messages through the multilateral zero-trust enclave with mutual TLS, hardware security module (HSM) signing, and per-recipient access expirations. Enable automatic retries with back-off that logs each attempt; escalate to counsel after three consecutive failures instead of attempting unsanctioned channels.
+- **Receipt reconciliation**: Collect delivery receipts, secure-messaging acknowledgements, and ticket numbers. Store them as evidentiary artifacts, link to the communications ledger, and include them in the final audit package.
+- **Function blueprint**:
+  ```pseudo
+  function broadcast_world_bank_brief(case_id):
+      assert legal_authority(case_id)
+      roster = ingest_contact_rosters(case_id)
+      packets = construct_briefing_packets(case_id, roster)
+      for recipient in roster:
+          if mandate_allows(case_id, recipient):
+              send_signed_packet(recipient, packets[recipient])
+              log_delivery(case_id, recipient)
+          else:
+              record_suppressed(case_id, recipient)
+      reconcile_receipts(case_id)
+      return compliance_report(case_id)
+  ```
+- **Audit trail**: Export scheduler logs, retry summaries, and delivery receipts to the evidence bundle. Maintain a quarterly review of the automation controls with the World Bank/BIS task force and document remediation items.
+
 Adhering to these steps ensures investigative rigor while honoring legal and ethical boundaries.

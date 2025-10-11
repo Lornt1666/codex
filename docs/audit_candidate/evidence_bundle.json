@@ -63,6 +63,22 @@
       "collected_at": "TBD"
     },
     {
+      "id": "multilateral_contact_rosters",
+      "type": "json",
+      "description": "Signed BIS/World Bank/IMF/regional development bank contact directories",
+      "hash": "SHA256 TBD",
+      "source": "World Bank/BIS secure portal",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "distribution_policy_record",
+      "type": "pdf",
+      "description": "Approved world-bank distribution policy with need-to-know segmentation rules",
+      "hash": "SHA256 TBD",
+      "source": "Task force compliance vault",
+      "collected_at": "TBD"
+    },
+    {
       "id": "identity_verification_packets",
       "type": "pdf",
       "description": "Notarized government ID, selfie, and IP attestation records supporting claimant identity",
@@ -109,6 +125,22 @@
       "hash": "SHA256 TBD",
       "source": "Exchange compliance responses",
       "collected_at": "TBD"
+    },
+    {
+      "id": "outreach_delivery_ledger",
+      "type": "csv",
+      "description": "Automation ledger logging transmissions to world banking authorities, retries, and acknowledgements",
+      "hash": "SHA256 TBD",
+      "source": "Zero-trust enclave export",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "outreach_control_reviews",
+      "type": "pdf",
+      "description": "Quarterly review memos documenting outreach control tests and remediation follow-up",
+      "hash": "SHA256 TBD",
+      "source": "World Bank/BIS supervisory committee",
+      "collected_at": "TBD"
     }
   ],
   "analysis_artifacts": [
@@ -134,6 +166,14 @@
       "description": "Aggregated inflow/outflow/gain metrics derived from normalized set",
       "hash": "SHA256 TBD",
       "generated_with": "audit-dashboard v0.3",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "outreach_kpi_metrics",
+      "type": "json",
+      "description": "Success, retry, and suppression metrics from world-bank outreach automation",
+      "hash": "SHA256 TBD",
+      "generated_with": "outreach-monitor v0.2",
       "collected_at": "TBD"
     },
     {

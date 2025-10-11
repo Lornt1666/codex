@@ -26,6 +26,7 @@ Scope of Request
 4. Security Controls: Provide multi-factor authentication enrollment data, reset history, and recovery ticket correspondence tied to the accounts for the period {start_date} through {end_date}.
 5. Recovery Telemetry: Provide helpdesk communications, zero-trust session logs, and any device attestation artifacts issued during account recovery, including IP/device context for each reset attempt.
 6. Multilateral Reporting: Identify any overlapping requests from other prudential supervisors, central banks, or multilateral development banks concerning the referenced accounts and provide the associated reference numbers.
+7. Communications Ledger: Provide records of any notifications your institution dispatched to world banking authorities or prudential supervisors regarding the subject accounts, including timestamps, recipient identifiers, and message hashes.
 
 Production Instructions
 - Records must be certified by an authorized officer pursuant to section 241 of the Income Tax Act and Evidence Act provisions.
