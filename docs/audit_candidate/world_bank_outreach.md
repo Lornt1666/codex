@@ -87,9 +87,23 @@ Inputs:
 - `--documents`: Optional override list of files to include (defaults to the seven sanctioned artifacts).
 - `--subject`: Subject line inserted into every generated message draft.
 - `--zip`: Produce a `.zip` archive mirroring the generated folder for secure upload.
+- `--delivery-plan`: Override the default `delivery_plan.json` location. Relative paths are created inside the output folder.
+- `--overwrite`: Permit the script to clear an existing non-empty output directory before regenerating the bundle.
 
 Outputs:
 - `documents/`: Verified copies of all evidence files with preserved timestamps.
 - `messages/`: Tailored communication drafts for each contact.
 - `outreach_manifest.json`: Machine-readable ledger of contacts, hashes, and file paths for downstream tracking.
+- `delivery_plan.json`: Structured dispatch instructions enumerating per-recipient tasks, hashes, and compliance controls.
 - Optional `<output>.zip` archive ready for enclave ingestion.
+
+### Dispatch Plan Automation
+
+The dispatch plan provides investigators and compliance teams with an actionable queue that can be ingested by downstream case-management tooling. Each task contains:
+
+- A unique identifier for ledger correlation and acknowledgement tracking.
+- The validated communication channel and target (email, phone, or secure portal) derived from the roster entry.
+- Cryptographic hashes of the corresponding message file to enforce tamper-evident delivery.
+- Prescribed compliance controls, including roster signature verification and ledger logging requirements.
+
+The JSON structure is intentionally compact so it can be imported into ticketing systems or scheduling platforms without manual transcription. If the roster specifies an unsupported channel or omits the required contact details (for example, a phone dispatch without a phone number), the tool raises an error before any files are generated, preventing incomplete outreach attempts.

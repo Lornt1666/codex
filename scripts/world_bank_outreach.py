@@ -14,10 +14,12 @@ import hashlib
 import json
 import re
 import shutil
+import uuid
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Iterable, List, Optional
+from typing import Dict, Iterable, List, Optional
 from zipfile import ZipFile
+from collections import Counter
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 AUDIT_DOC_ROOT = REPO_ROOT / "docs" / "audit_candidate"
@@ -62,6 +64,9 @@ class Contact:
     def short_name(self) -> str:
         return re.sub(r"[^A-Za-z0-9]+", "_", self.name or "contact").strip("_") or "contact"
 
+    def channel_key(self) -> str:
+        return _normalize_channel(self.preferred_channel)
+
 
 @dataclass
 class DocumentRecord:
@@ -77,12 +82,34 @@ class MessageRecord:
     filename: Path
 
 
+@dataclass
+class DispatchTask:
+    task_id: str
+    contact: Contact
+    method: str
+    target: str
+    message_file: Path
+    instructions: str
+    status: str = "pending"
+
+
+def _normalize_channel(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "_", value.strip().lower())
+
+
 def _hash_file(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as handle:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def _rel_path(path: Path, base: Path) -> str:
+    try:
+        return str(path.relative_to(base))
+    except ValueError:
+        return str(path)
 
 
 def load_contacts(path: Path) -> List[Contact]:
@@ -101,6 +128,17 @@ def ensure_documents_exist(documents: Iterable[Path]) -> None:
         raise FileNotFoundError(
             "The following required documentation was not found: " + ", ".join(missing)
         )
+
+
+def prepare_output_dir(path: Path, overwrite: bool) -> None:
+    if path.exists():
+        if any(path.iterdir()):
+            if not overwrite:
+                raise FileExistsError(
+                    f"Output directory {path} is not empty. Use --overwrite to regenerate the bundle"
+                )
+            shutil.rmtree(path)
+    path.mkdir(parents=True, exist_ok=True)
 
 
 def copy_documents(documents: Iterable[Path], target_dir: Path) -> List[DocumentRecord]:
@@ -149,12 +187,125 @@ def write_messages(contacts: Iterable[Contact], subject: str, target_dir: Path) 
     return messages
 
 
+def _resolve_dispatch_details(contact: Contact) -> Dict[str, str]:
+    channel = contact.channel_key()
+
+    if channel in {"email", "e_mail"}:
+        if not contact.email:
+            raise ValueError(
+                f"Contact {contact.name} does not have an email address for email dispatch"
+            )
+        return {
+            "method": "email",
+            "target": contact.email,
+            "instructions": (
+                "Send the message via encrypted email (S/MIME or PGP) and attach the manifest "
+                "hash reference. Log the acknowledgement ID in the communications ledger."
+            ),
+        }
+
+    if channel in {"phone", "telephone", "voice", "voice_call"}:
+        if not contact.phone:
+            raise ValueError(
+                f"Contact {contact.name} does not have a phone number for phone dispatch"
+            )
+        return {
+            "method": "phone",
+            "target": contact.phone,
+            "instructions": (
+                "Place a recorded compliance-reviewed call referencing the message file. "
+                "Confirm the recipient's identity using the roster passphrase before "
+                "summarizing key actions and email the manifest hash upon completion."
+            ),
+        }
+
+    if channel in {"secure_portal", "portal", "secure_gateway"}:
+        return {
+            "method": "secure_portal",
+            "target": contact.organization,
+            "instructions": (
+                "Upload the message file to the institution's authenticated supervisory portal. "
+                "Reference the case identifier and manifest hash, then capture the portal "
+                "receipt number for the outreach ledger."
+            ),
+        }
+
+    raise ValueError(
+        f"Unsupported preferred channel '{contact.preferred_channel}' for contact {contact.name}"
+    )
+
+
+def generate_dispatch_tasks(
+    messages: Iterable[MessageRecord],
+) -> List[DispatchTask]:
+    tasks: List[DispatchTask] = []
+    for message in messages:
+        details = _resolve_dispatch_details(message.contact)
+        tasks.append(
+            DispatchTask(
+                task_id=uuid.uuid4().hex,
+                contact=message.contact,
+                method=details["method"],
+                target=details["target"],
+                message_file=message.filename,
+                instructions=details["instructions"],
+            )
+        )
+    return tasks
+
+
+def build_dispatch_plan(output_dir: Path, tasks: Iterable[DispatchTask]) -> dict:
+    task_list = list(tasks)
+    now = dt.datetime.utcnow().replace(microsecond=0)
+    ack_deadline = (now + dt.timedelta(days=2)).isoformat() + "Z"
+    channel_counts = Counter(task.method for task in task_list)
+
+    return {
+        "generated_at": now.isoformat() + "Z",
+        "acknowledgment_deadline": ack_deadline,
+        "summary": {
+            "total_tasks": len(task_list),
+            "channels": dict(channel_counts),
+        },
+        "tasks": [
+            {
+                "task_id": task.task_id,
+                "contact": {
+                    "name": task.contact.name,
+                    "organization": task.contact.organization,
+                },
+                "method": task.method,
+                "target": task.target,
+                "message_file": _rel_path(task.message_file, output_dir),
+                "message_sha256": _hash_file(task.message_file),
+                "instructions": task.instructions,
+                "status": task.status,
+                "compliance_controls": [
+                    "Verify roster signature before dispatch",
+                    "Record delivery attempt in the outreach ledger with manifest hash",
+                ],
+            }
+            for task in task_list
+        ],
+    }
+
+
+def write_dispatch_plan(plan: dict, path: Path) -> None:
+    path.write_text(json.dumps(plan, indent=2), encoding="utf-8")
+
+
 def build_manifest(
     output_dir: Path,
     contacts: Iterable[Contact],
     documents: Iterable[DocumentRecord],
     messages: Iterable[MessageRecord],
+    dispatch_plan_path: Optional[Path],
+    dispatch_tasks: Iterable[DispatchTask],
 ) -> dict:
+    contact_list = list(contacts)
+    document_list = list(documents)
+    message_list = list(messages)
+    task_list = list(dispatch_tasks)
     timestamp = dt.datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
     return {
         "generated_at": timestamp,
@@ -166,7 +317,7 @@ def build_manifest(
                 "copied_to": str(record.dest.relative_to(output_dir)),
                 "sha256": record.sha256,
             }
-            for record in documents
+            for record in document_list
         ],
         "contacts": [
             {
@@ -176,8 +327,17 @@ def build_manifest(
                 **({"email": contact.email} if contact.email else {}),
                 **({"phone": contact.phone} if contact.phone else {}),
             }
-            for contact in contacts
+            for contact in contact_list
         ],
+        "dispatch_summary": {
+            "total_recipients": len(contact_list),
+            "channels": dict(Counter(task.method for task in task_list)),
+        },
+        **(
+            {"delivery_plan": _rel_path(dispatch_plan_path, output_dir)}
+            if dispatch_plan_path is not None
+            else {}
+        ),
         "messages": [
             {
                 "contact": message.contact.name,
@@ -185,7 +345,7 @@ def build_manifest(
                 "subject": message.subject,
                 "file": str(message.filename.relative_to(output_dir)),
             }
-            for message in messages
+            for message in message_list
         ],
     }
 
@@ -229,6 +389,17 @@ def parse_args(argv: Optional[Iterable[str]] = None) -> argparse.Namespace:
         default=DEFAULT_DOCUMENTS,
         help="Optional override list of documentation paths to include",
     )
+    parser.add_argument(
+        "--delivery-plan",
+        type=Path,
+        default=None,
+        help="Optional path for the generated dispatch plan JSON (defaults to <output>/delivery_plan.json)",
+    )
+    parser.add_argument(
+        "--overwrite",
+        action="store_true",
+        help="Allow regenerating the bundle if the output directory already exists and is not empty",
+    )
     return parser.parse_args(argv)
 
 
@@ -238,20 +409,41 @@ def main(argv: Optional[Iterable[str]] = None) -> int:
     ensure_documents_exist(args.documents)
 
     output_dir = args.output.resolve()
+    prepare_output_dir(output_dir, args.overwrite)
     documents_dir = output_dir / "documents"
     messages_dir = output_dir / "messages"
     manifest_path = output_dir / "outreach_manifest.json"
+    if args.delivery_plan:
+        delivery_plan_path = args.delivery_plan
+        if not delivery_plan_path.is_absolute():
+            delivery_plan_path = output_dir / delivery_plan_path
+    else:
+        delivery_plan_path = output_dir / "delivery_plan.json"
 
     documents = copy_documents(args.documents, documents_dir)
     messages = write_messages(contacts, args.subject, messages_dir)
-    manifest = build_manifest(output_dir, contacts, documents, messages)
+    dispatch_tasks = generate_dispatch_tasks(messages)
+    dispatch_plan = build_dispatch_plan(output_dir, dispatch_tasks)
+    delivery_plan_path.parent.mkdir(parents=True, exist_ok=True)
+    write_dispatch_plan(dispatch_plan, delivery_plan_path)
+    manifest = build_manifest(
+        output_dir,
+        contacts,
+        documents,
+        messages,
+        delivery_plan_path,
+        dispatch_tasks,
+    )
     write_manifest(manifest, manifest_path)
 
     print(f"Generated {len(documents)} documents and {len(messages)} messages into {output_dir}")
     print(f"Manifest written to {manifest_path}")
+    print(f"Dispatch plan written to {delivery_plan_path}")
 
     if args.zip_archive:
         archive_path = output_dir.with_suffix(".zip")
+        if args.overwrite and archive_path.exists():
+            archive_path.unlink()
         archive_bundle(output_dir, archive_path)
         print(f"Archive generated at {archive_path}")
 

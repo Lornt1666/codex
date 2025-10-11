@@ -127,6 +127,14 @@
       "collected_at": "TBD"
     },
     {
+      "id": "outreach_dispatch_plan",
+      "type": "json",
+      "description": "Automation-generated task list with per-recipient channels, hashes, and compliance controls",
+      "hash": "SHA256 TBD",
+      "source": "scripts/world_bank_outreach.py output",
+      "collected_at": "TBD"
+    },
+    {
       "id": "outreach_delivery_ledger",
       "type": "csv",
       "description": "Automation ledger logging transmissions to world banking authorities, retries, and acknowledgements",
