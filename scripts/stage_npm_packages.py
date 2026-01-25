@@ -56,6 +56,11 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Retain temporary staging directories instead of deleting them.",
     )
+    parser.add_argument(
+        "--skip-native-deps",
+        action="store_true",
+        help="Skip downloading native dependencies (for testing purposes).",
+    )
     return parser.parse_args()
 
 
@@ -67,23 +72,32 @@ def collect_native_components(packages: list[str]) -> set[str]:
 
 
 def resolve_release_workflow(version: str) -> dict:
-    stdout = subprocess.check_output(
-        [
-            "gh",
-            "run",
-            "list",
-            "--branch",
-            f"rust-v{version}",
-            "--json",
-            "workflowName,url,headSha",
-            "--workflow",
-            WORKFLOW_NAME,
-            "--jq",
-            "first(.[])",
-        ],
-        cwd=REPO_ROOT,
-        text=True,
-    )
+    try:
+        stdout = subprocess.check_output(
+            [
+                "gh",
+                "run",
+                "list",
+                "--branch",
+                f"rust-v{version}",
+                "--json",
+                "workflowName,url,headSha",
+                "--workflow",
+                WORKFLOW_NAME,
+                "--jq",
+                "first(.[])",
+            ],
+            cwd=REPO_ROOT,
+            text=True,
+            stderr=subprocess.PIPE,
+        )
+    except subprocess.CalledProcessError as e:
+        stderr_msg = e.stderr.decode() if isinstance(e.stderr, bytes) else str(e.stderr)
+        raise RuntimeError(
+            f"Unable to query rust-release workflow for version {version}. "
+            f"Make sure the workflow file exists and a release has been run for rust-v{version}. "
+            f"Error: {stderr_msg}"
+        ) from e
     workflow = json.loads(stdout or "null")
     if not workflow:
         raise RuntimeError(f"Unable to find rust-release workflow for version {version}.")
@@ -128,6 +142,10 @@ def main() -> int:
 
     packages = list(args.packages)
     native_components = collect_native_components(packages)
+    
+    if args.skip_native_deps:
+        print("Skipping native dependencies as requested")
+        native_components = set()
 
     vendor_temp_root: Path | None = None
     vendor_src: Path | None = None
@@ -165,6 +183,9 @@ def main() -> int:
 
             if vendor_src is not None:
                 cmd.extend(["--vendor-src", str(vendor_src)])
+            
+            if args.skip_native_deps:
+                cmd.append("--skip-native-deps")
 
             try:
                 run_command(cmd)

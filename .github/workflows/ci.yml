@@ -41,7 +41,8 @@ jobs:
           python3 ./scripts/stage_npm_packages.py \
             --release-version "$CODEX_VERSION" \
             --package codex \
-            --output-dir "$OUTPUT_DIR"
+            --output-dir "$OUTPUT_DIR" \
+            --skip-native-deps
           PACK_OUTPUT="${OUTPUT_DIR}/codex-npm-${CODEX_VERSION}.tgz"
           echo "pack_output=$PACK_OUTPUT" >> "$GITHUB_OUTPUT"
 

@@ -69,6 +69,11 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         help="Directory containing pre-installed native binaries to bundle (vendor root).",
     )
+    parser.add_argument(
+        "--skip-native-deps",
+        action="store_true",
+        help="Skip bundling native dependencies (for testing purposes).",
+    )
     return parser.parse_args()
 
 
@@ -93,6 +98,10 @@ def main() -> int:
 
         vendor_src = args.vendor_src.resolve() if args.vendor_src else None
         native_components = PACKAGE_NATIVE_COMPONENTS.get(package, [])
+
+        if args.skip_native_deps:
+            print(f"Skipping native components for {package}")
+            native_components = []
 
         if native_components:
             if vendor_src is None:
