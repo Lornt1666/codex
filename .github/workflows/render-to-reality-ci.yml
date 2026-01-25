@@ -1,0 +1,43 @@
+name: RenderToRealityApp CI
+
+on:
+  push:
+    paths:
+      - 'RenderToRealityApp/**'
+      - '.github/workflows/render-to-reality-ci.yml'
+  pull_request:
+    paths:
+      - 'RenderToRealityApp/**'
+      - '.github/workflows/render-to-reality-ci.yml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        cd RenderToRealityApp
+        python -m pip install --upgrade pip
+        pip install pytest
+        # Install only required deps (skip optional PyQt6, torch, openai)
+        pip install opencv-python numpy Pillow trimesh
+    
+    - name: Run tests
+      run: |
+        cd RenderToRealityApp
+        pytest tests/ -v
+    
+    - name: Check imports
+      run: |
+        cd RenderToRealityApp
+        python -c "from scripts import ratio_analysis, mesh_metrics, openai_hooks; print('Script imports OK')"
+        python -c "from main import MidasDepth, build_mesh; print('Main imports OK')"
+        python cli.py --help

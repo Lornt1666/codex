@@ -1,0 +1,12 @@
+{
+    "brand": "Render-to-Reality | 1JGM∞.BE",
+    "blender_path": "C:/Program Files/Blender Foundation/Blender 3.6/blender.exe",
+    "midas_model": "DPT_Hybrid",
+    "use_gpu_if_available": true,
+    "export_format": "stl",
+    "known_scale_mm": 0.0,
+    "openai_enabled": false,
+    "openai_model": "gpt-4o-mini",
+    "openai_api_key": "",
+    "summary_tone": "technical"
+}
