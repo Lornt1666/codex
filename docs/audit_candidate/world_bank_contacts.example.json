@@ -1,0 +1,21 @@
+[
+  {
+    "name": "Dr. Elena Vargas",
+    "organization": "World Bank Financial Integrity Unit",
+    "email": "elena.vargas@worldbank.org",
+    "phone": "+1-202-555-0199",
+    "preferred_channel": "email"
+  },
+  {
+    "name": "Kenji Nakamura",
+    "organization": "Bank of Japan – Digital Currency Oversight",
+    "email": "kenji.nakamura@boj.or.jp",
+    "preferred_channel": "secure portal"
+  },
+  {
+    "name": "Marie Dubois",
+    "organization": "European Central Bank AML Task Force",
+    "phone": "+49-69-1344-0000",
+    "preferred_channel": "phone"
+  }
+]

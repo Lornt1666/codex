@@ -1,0 +1,218 @@
+{
+  "subject": "Justice Gray Maciocha / Satoshi_amamoto / Lornt",
+  "wallets": ["0xABC..."],
+  "period": {"start": "2018-01-01", "end": "2024-12-31"},
+  "jurisdiction": "Canada/Alberta with World Bank/BIS multilateral supervision",
+  "priority": "high",
+  "resources": {"subpoena_power": true, "exchange_access": true},
+  "evidence_items": [
+    {
+      "id": "onchain_export_eth",
+      "type": "csv",
+      "description": "Ethereum transaction export from Etherscan (2018-2024)",
+      "hash": "SHA256 TBD",
+      "source": "https://etherscan.io/address/0xABC...",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "onchain_export_btc",
+      "type": "csv",
+      "description": "Bitcoin transaction export from Blockchair (2018-2024)",
+      "hash": "SHA256 TBD",
+      "source": "https://blockchair.com/bitcoin/address/bc1qexample...",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "bank_statements",
+      "type": "pdf",
+      "description": "Institution 219 transit 07579 account 00471372978 statements (2018-2024)",
+      "hash": "SHA256 TBD",
+      "source": "Bank production",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "swift_gpi_traces",
+      "type": "xml",
+      "description": "SWIFT gpi MT103/199 trace exports covering correspondent banking legs",
+      "hash": "SHA256 TBD",
+      "source": "BIS Innovation Hub secure exchange",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "exchange_trade_history",
+      "type": "csv",
+      "description": "Coinsquare/Binance/NDAX trade exports (2018-2024)",
+      "hash": "SHA256 TBD",
+      "source": "Exchange subpoena response",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "tax_returns",
+      "type": "pdf",
+      "description": "Subject-filed Canadian tax returns 2018-2024",
+      "hash": "SHA256 TBD",
+      "source": "CRA records",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "legal_authorizations",
+      "type": "pdf",
+      "description": "Court orders, subpoenas, or consent letters authorizing recovery actions",
+      "hash": "SHA256 TBD",
+      "source": "CRA legal services",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "multilateral_contact_rosters",
+      "type": "json",
+      "description": "Signed BIS/World Bank/IMF/regional development bank contact directories",
+      "hash": "SHA256 TBD",
+      "source": "World Bank/BIS secure portal",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "distribution_policy_record",
+      "type": "pdf",
+      "description": "Approved world-bank distribution policy with need-to-know segmentation rules",
+      "hash": "SHA256 TBD",
+      "source": "Task force compliance vault",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "identity_verification_packets",
+      "type": "pdf",
+      "description": "Notarized government ID, selfie, and IP attestation records supporting claimant identity",
+      "hash": "SHA256 TBD",
+      "source": "Exchange compliance responses / claimant submissions",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "isp_subscriber_logs",
+      "type": "pdf",
+      "description": "ISP records mapping subject addresses to subpoenaed IP logs (2018-2024)",
+      "hash": "SHA256 TBD",
+      "source": "ISP subpoena response",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "custodial_login_metadata",
+      "type": "csv",
+      "description": "Exchange-provided IP/device login metadata aligned to wallet activity",
+      "hash": "SHA256 TBD",
+      "source": "Exchange subpoena response",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "world_bank_risk_brief",
+      "type": "pdf",
+      "description": "World Bank Financial Sector Integrity risk memo summarizing systemic considerations",
+      "hash": "SHA256 TBD",
+      "source": "World Bank task force portal",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "device_forensic_images",
+      "type": "img",
+      "description": "Forensic images of claimant mobile and workstation devices with authenticator telemetry",
+      "hash": "SHA256 TBD",
+      "source": "Digital forensics lab",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "custodial_recovery_tickets",
+      "type": "pdf",
+      "description": "Helpdesk ticket exports showing password/MFA resets and recovery communications",
+      "hash": "SHA256 TBD",
+      "source": "Exchange compliance responses",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "outreach_dispatch_plan",
+      "type": "json",
+      "description": "Automation-generated task list with per-recipient channels, hashes, and compliance controls",
+      "hash": "SHA256 TBD",
+      "source": "scripts/world_bank_outreach.py output",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "outreach_delivery_ledger",
+      "type": "csv",
+      "description": "Automation ledger logging transmissions to world banking authorities, retries, and acknowledgements",
+      "hash": "SHA256 TBD",
+      "source": "Zero-trust enclave export",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "outreach_control_reviews",
+      "type": "pdf",
+      "description": "Quarterly review memos documenting outreach control tests and remediation follow-up",
+      "hash": "SHA256 TBD",
+      "source": "World Bank/BIS supervisory committee",
+      "collected_at": "TBD"
+    }
+  ],
+  "analysis_artifacts": [
+    {
+      "id": "normalized_transactions",
+      "type": "json",
+      "description": "Standardized transaction dataset per normalization guidelines",
+      "hash": "SHA256 TBD",
+      "generated_with": "audit-normalizer v1.0",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "entity_graph",
+      "type": "graphml",
+      "description": "Cluster graph linking subject to exchanges, mixers, and OTC desks",
+      "hash": "SHA256 TBD",
+      "generated_with": "Chainalysis export",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "dashboard_metrics",
+      "type": "json",
+      "description": "Aggregated inflow/outflow/gain metrics derived from normalized set",
+      "hash": "SHA256 TBD",
+      "generated_with": "audit-dashboard v0.3",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "outreach_kpi_metrics",
+      "type": "json",
+      "description": "Success, retry, and suppression metrics from world-bank outreach automation",
+      "hash": "SHA256 TBD",
+      "generated_with": "outreach-monitor v0.2",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "ip_device_correlation",
+      "type": "xlsx",
+      "description": "Matrix correlating exchange login IPs/devices with ISP subscriber data and banking sessions",
+      "hash": "SHA256 TBD",
+      "generated_with": "forensic-linker v1.1",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "bis_systemic_alerts",
+      "type": "json",
+      "description": "BIS central bank digital asset monitor alerts linked to subject transactions",
+      "hash": "SHA256 TBD",
+      "generated_with": "BIS monitor API",
+      "collected_at": "TBD"
+    },
+    {
+      "id": "zero_trust_audit_log",
+      "type": "jsonl",
+      "description": "Consolidated zero-trust monitoring exports documenting recovery workspace activity",
+      "hash": "SHA256 TBD",
+      "generated_with": "zt-collector v0.4",
+      "collected_at": "TBD"
+    }
+  ],
+  "chain_snapshots": [
+    {"chain": "Ethereum", "block_height": "18500000", "timestamp": "2024-12-31T23:59:59Z"},
+    {"chain": "Bitcoin", "block_height": "840000", "timestamp": "2024-12-31T23:59:59Z"},
+    {"chain": "Arbitrum", "block_height": "196000000", "timestamp": "2024-12-31T23:59:59Z"}
+  ],
+  "notes": "Populate TBD fields upon evidence acquisition; maintain chain-of-custody log, reference audit diary entry numbers, log quarterly access-control reviews, capture zero-trust monitoring hashes, record confirmation plus team attestations that no unauthorized key reconstruction attempts were undertaken, and document all transfers through BIS/World Bank secure portals with corresponding authorization IDs."
+}
